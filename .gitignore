@@ -1,0 +1,22 @@
+# Environment files
+.env
+.env.local
+
+# Python virtual environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local app data
+uploads/
+database/
+*.db
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
