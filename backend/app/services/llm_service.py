@@ -46,10 +46,16 @@ class LLMService:
             if self.provider == "groq":
                 return self._chat_groq(user_prompt)
             return self._chat_openai(user_prompt)
-        except Exception:
+        except Exception as exc:
             if self.provider == "groq":
-                return self._chat_openai(user_prompt)
-            return self._chat_groq(user_prompt)
+                if self._openai:
+                    return self._chat_openai(user_prompt)
+                raise LLMError(f"GROQ API failed: {exc}") from exc
+
+            if self._groq:
+                return self._chat_groq(user_prompt)
+
+            raise LLMError(f"OpenAI API failed: {exc}") from exc
 
     def rewrite_query(self, question: str) -> str:
         prompt = (

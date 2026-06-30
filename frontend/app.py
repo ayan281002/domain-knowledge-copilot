@@ -15,6 +15,13 @@ st.markdown(
 html, body, [class*="css"]  { font-family: 'Space Grotesk', sans-serif; }
 .stApp {
     background: radial-gradient(circle at 20% 10%, #f8f5ec 0%, #e8f1f2 45%, #d5e0f3 100%);
+    color: #0f172a;
+}
+[data-testid="stMain"] {
+    background: transparent;
+}
+[data-testid="stMain"] * {
+    color: #0f172a !important;
 }
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg, #113946 0%, #1a5f7a 100%);
